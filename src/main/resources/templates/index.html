@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript">
+        function myFunction() {
+            alert("Hello World !");
+        }
+        function getRequest() {
+            $.ajax({
+                url: "/hello",
+                type: "GET",
+                dataType: "json",
+                async: false,
+                success: function (result) {
+                    var newData = JSON.stringify(result);    //将json对象转换为字符串
+                    alert("消息:" + newData);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>Hello</div>
+    <button type="button" onclick="myFunction()">点这里试试</button>
+    <button type="button" onclick="getRequest()">点这里试试</button>
+</body>
+</html>
